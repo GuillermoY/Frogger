@@ -8,6 +8,12 @@ Rodrigo Ceña Álvarez
 Guillermo Isaac Ramos Medina
 
 ##########################
+Modo de Reinicio
+##########################
+
+Ctrl Shift 0
+
+##########################
 Funcionalidades opcionales
 ##########################
 

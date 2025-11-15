@@ -90,6 +90,7 @@ private:
     static constexpr int WASP_MAX_SPAWN_TIME = 500;
     static constexpr int WASP_LIFESPAN = 250;
     int timeForSpawn;
+    int lastNest = -1;
     std::vector<Point2D> spawnPoints = { Point2D(BORDER_AND_NEST_GAP + WASP_SPAWN_X, HOMED_FROG_Y_POS), Point2D(BORDER_AND_NEST_GAP + NEST_GAP + WASP_SPAWN_X, HOMED_FROG_Y_POS),
     Point2D(BORDER_AND_NEST_GAP + NEST_GAP * 2 + WASP_SPAWN_X, HOMED_FROG_Y_POS), Point2D(BORDER_AND_NEST_GAP + NEST_GAP * 3 + WASP_SPAWN_X, HOMED_FROG_Y_POS),
     Point2D(BORDER_AND_NEST_GAP + NEST_GAP * 4 + WASP_SPAWN_X, HOMED_FROG_Y_POS) }; // Contiene las posiciones de cada nido
@@ -126,6 +127,9 @@ public:
 
     // Reinicia el juego
     void restartGame();
+
+    // Activa el último nido ocupado por una avispa
+    void alterHomed();
 };
 
 inline Texture* Game::getTexture(TextureName name) const

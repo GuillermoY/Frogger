@@ -240,7 +240,7 @@ Collision Game::checkCollision(const SDL_FRect& rect) const
             {
                 return col;
             }
-
+            
             // NEST se guarda pero seguimos buscando por si hay ENEMY
             if (col.tipo == Collision::NEST)
             {
@@ -254,8 +254,19 @@ Collision Game::checkCollision(const SDL_FRect& rect) const
             }
         }
     }
+    if (nestCollision.tipo != Collision::NONE)
+    {
+        return nestCollision;
+    }
+    else
+    {
+        return result;
+    }
+}
 
-    return result;
+void Game::alterHomed()
+{
+    homedFrogs[lastNest]->alterWasp();
 }
 
 void Game::trySpawnWasp()
@@ -265,16 +276,17 @@ void Game::trySpawnWasp()
     if (waspSpawnTimer >= timeForSpawn)
     {
         waspSpawnTimer = 0;
-        int nest = getRandomRange(0, homedFrogsNum - 1);
+        lastNest = getRandomRange(0, homedFrogsNum - 1);
         
-        while (homedFrogs[nest]->getActive())
+        while (homedFrogs[lastNest]->getActive())
         {
-            nest = getRandomRange(0, homedFrogsNum - 1);
+            lastNest = getRandomRange(0, homedFrogsNum - 1);
         }
 
         sceneObjects.push_back(nullptr);
         Anchor anchor = --sceneObjects.end();
-        Wasp* wasp = new Wasp(this, getTexture(WASP), spawnPoints[nest], WASP_LIFESPAN, anchor);
+        Wasp* wasp = new Wasp(this, getTexture(WASP), spawnPoints[lastNest], WASP_LIFESPAN, anchor);
+        homedFrogs[lastNest]->alterWasp();
         *anchor = wasp;
 
         timeForSpawn = getRandomRange(WASP_MIN_SPAWN_TIME, WASP_MAX_SPAWN_TIME);
@@ -383,6 +395,7 @@ int Game::getRandomRange(int min, int max)
 void Game::addHomedFrog()
 {
     actualFrogs++;
+    //cout << "NEW HOMED " << actualFrogs << endl;
 }
 
 /**

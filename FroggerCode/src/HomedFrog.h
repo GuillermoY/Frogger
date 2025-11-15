@@ -14,7 +14,7 @@ class HomedFrog : public SceneObject
 {
 private:
     bool isActive = false;  // Si está ocupado por una rana
-
+    bool hasWasp = false; // Si está ocupado por una wasp
 public:
     HomedFrog(Game* game, Texture* texture, Point2D pos);
 
@@ -30,6 +30,7 @@ public:
     // Getters y setters
     void setActive() { isActive = true; }
     bool getActive() const { return isActive; }
+    void alterWasp() { if (hasWasp)hasWasp = false; else { hasWasp = true; } }
 };
 
 #endif // HOMEDFROG_H

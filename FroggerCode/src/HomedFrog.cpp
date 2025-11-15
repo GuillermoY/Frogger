@@ -49,13 +49,14 @@ Collision HomedFrog::checkCollision(const SDL_FRect& rect)
 
     if (SDL_HasRectIntersectionFloat(&nestRect, &rect))
     {
-        if (isActive)
+        if (isActive || hasWasp)
         {
             col.tipo = Collision::ENEMY;
         }
         else
         {
             col.tipo = Collision::NEST;
+            game->addHomedFrog();
             setActive();
         }
     }

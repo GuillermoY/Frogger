@@ -42,6 +42,7 @@ void Wasp::update()
     // Si ha expirado, marca para eliminación
     if (!isAlive())
     {
+        game->alterHomed();
         game->deleteAfter(myAnchor);
     }
 }
