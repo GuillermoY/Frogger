@@ -1,0 +1,61 @@
+# General files to ignore
+*.log
+*.bak
+*.swp
+*.tmp
+
+# Ignore SolidWorks files (modify based on your needs)
+*.sldprt
+*.sldasm
+*.slddrw
+*.SLD*
+
+# Visual Studio files
+.vs/
+.vscode/
+.idea/
+
+# Build directories and files
+Debug/
+Release/
+x64/
+x86/
+out/
+
+# C++ build files
+*.obj
+*.o
+*.exe
+*.dll
+*.pdb
+*.lib
+*.dSYM/
+*.idb
+*.ilk
+*.exp
+
+# Visual Studio configuration files (that aren't useful for sharing the project)
+.vs2019/
+.vs2017/
+.vs2015/
+.vsconfig
+.vsscc
+.vssscc
+
+# CMake-related files
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# Ignore user-specific configuration files
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+# Ignore temporary Visual Studio files
+*.sdf
+*.dbmdl
+*.opensdf
