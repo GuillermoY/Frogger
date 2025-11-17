@@ -229,7 +229,7 @@ void Game::handleEvents()
 /**
  * Comprueba colisiones con todos los objetos
  */
-Collision Game::checkCollision(const SDL_FRect& rect) const
+Collision Game::checkCollision(const SDL_FRect& rect)
 {
     Collision result;
     result.tipo = Collision::NONE;
@@ -237,9 +237,9 @@ Collision Game::checkCollision(const SDL_FRect& rect) const
     Collision nestCollision;
     nestCollision.tipo = Collision::NONE;
 
-    for (const auto* obj : sceneObjects)
+    for (auto* obj : sceneObjects)
     {
-        Collision col = const_cast<SceneObject*>(obj)->checkCollision(rect);
+        Collision col = obj->checkCollision(rect);
 
         if (col.tipo != Collision::NONE)
         {

@@ -111,7 +111,7 @@ public:
     void run();
 
     // Comprueba colisiones
-    Collision checkCollision(const SDL_FRect& rect) const;
+    Collision checkCollision(const SDL_FRect& rect);
 
     // Obtiene una textura
     Texture* getTexture(TextureName name) const;
