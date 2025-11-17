@@ -3,7 +3,7 @@
 /**
  * Constructor de SceneObject
  */
-SceneObject::SceneObject(Game* game, Texture* texture, Point2D pos, int width, int height)
+SceneObject::SceneObject(Game* game, Texture* texture, Point2D pos, float width, float height)
     : GameObject(game), texture(texture), position(pos), width(width), height(height)
 {
 }
@@ -16,8 +16,8 @@ void SceneObject::render() const
     SDL_FRect destRect = {
         position.getX(),
         position.getY(),
-        static_cast<float>(width),
-        static_cast<float>(height)
+        width,   // Ahora 'width' es float, no se necesita conversión
+        height   // Lo mismo con 'height'
     };
     texture->render(destRect);
 }
@@ -27,11 +27,12 @@ void SceneObject::render() const
  */
 SDL_FRect SceneObject::getBoundingBox() const
 {
+    // Directamente se usan 'width' y 'height' como floats
     return SDL_FRect{
         position.getX(),
         position.getY(),
-        static_cast<float>(width),
-        static_cast<float>(height)
+        width,
+        height
     };
 }
 

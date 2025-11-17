@@ -26,7 +26,7 @@ Collision Vehicle::checkCollision(const SDL_FRect& rect)
     SDL_FRect vehicleRect = {
         position.getX(),
         position.getY(),
-        static_cast<float>(width),
+        width,
         height / 2.0f
     };
 

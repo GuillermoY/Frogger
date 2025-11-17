@@ -23,8 +23,8 @@ void HomedFrog::render() const
         SDL_FRect destRect = {
             position.getX(),
             position.getY(),
-            static_cast<float>(width),
-            static_cast<float>(height)
+            width,
+            height
         };
         texture->renderFrame(destRect, 0, 0, SDL_FLIP_VERTICAL);
     }

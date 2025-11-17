@@ -19,8 +19,8 @@ void Frog::render() const
     SDL_FRect destRect = {
         position.getX(),
         position.getY(),
-        static_cast<float>(width),
-        static_cast<float>(height)
+        width,
+        height
     };
 
     int frame = getCurrentFrame();
@@ -89,7 +89,7 @@ void Frog::update()
     {
         changeDir(col.vel);
     }
-    else if ((position.getX() < 0 || position.getX() > game->WINDOW_WIDTH - game->CELL_SIZE) || (col.tipo == Collision::ENEMY))//|| (col.tipo == Collision::NONE && (position.getY() < (game->WINDOW_HEIGHT / 2) - game->CELL_SIZE)))
+    else if ((position.getX() < 0 || position.getX() > game->WINDOW_WIDTH - game->CELL_SIZE) || (col.tipo == Collision::ENEMY)|| (col.tipo == Collision::NONE && (position.getY() < (game->WINDOW_HEIGHT / 2) - game->CELL_SIZE)))
     {
         changePos(iniPos);
         if (col.tipo == Collision::ENEMY)

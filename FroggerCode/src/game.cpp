@@ -187,6 +187,14 @@ void Game::run()
         update();
         SDL_Delay(FRAME_RATE);
     }
+    if (actualFrogs < homedFrogsNum)
+    {
+        cout << "GANASTE" << endl;
+    }
+    else if (frog->getLives() > 0)
+    {
+        cout << "PERDISTE" << endl;
+    }
 }
 
 /**

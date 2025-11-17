@@ -33,14 +33,14 @@ class SceneObject : public GameObject
 {
 protected:
     Point2D position;
-    int width, height;
+    float width, height;
     Texture* texture;
 
     // Método protegido para obtener la caja de colisión
     SDL_FRect getBoundingBox() const;
 
 public:
-    SceneObject(Game* game, Texture* texture, Point2D pos, int width, int height);
+    SceneObject(Game* game, Texture* texture, Point2D pos, float width, float height);
     virtual ~SceneObject() = default;
 
     // Render por defecto (puede ser sobrescrito)

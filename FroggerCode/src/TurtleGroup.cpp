@@ -67,8 +67,8 @@ void TurtleGroup::render() const
         SDL_FRect destRect = {
             position.getX() + i * width,
             position.getY(),
-            static_cast<float>(width),
-            static_cast<float>(height)
+            width,
+            height
         };
 
         texture->renderFrame(destRect, 0, currentFrame);
